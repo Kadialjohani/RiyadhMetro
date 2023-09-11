@@ -65,8 +65,8 @@ export default function Home() {
         setList([...list, res.data]);
         setDate(date)
         // console.log(res));
+        
       });
-      nav("/bookings")
   };
 
   // map
