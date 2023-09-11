@@ -39,7 +39,7 @@ export default function Home() {
     from: "",
     to: "",
     date: "",
-    price: "15",
+    price: "",
   });
 
   useEffect(() => {
@@ -53,10 +53,10 @@ export default function Home() {
   const Book = () => {
     axios
       .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
-        from: tickets.from,
-        to: tickets.to,
+        from: selectedStation1?.name || "",
+        to: selectedStation2?.name || "",
         date: tickets.date,
-        price: tickets.price,
+        price: price,
       })
       .then((res) => {
         setList([...list, res.data]);
