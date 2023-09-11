@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../assets/Logo.png";
-import Logo2 from "../assets/Logo2.png";
-
+import Logo2 from "../assets/Logo2.png"
 
 interface NavbarProps {
   isLoggedIn: boolean;
@@ -37,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <a href="/">Stations</a>
               </li>
               <li>
-                <a href="/">
+                <a href="/" className="">
                   Services
                 </a>
               </li>
@@ -57,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <li>
                 <a href="/signup">
                   <button
-                    className="text-[#176B87] bg-[#EEEEEE] w-24 h-10 rounded-full"
+                    className="bg-[#EEEEEE] text-[#176B87] w-24 h-10 rounded-full"
                     onClick={onSignup}
                   >
                     Signup
@@ -90,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="flex flex-row items-center justify-around w-1/5">
               <li>
                 <button
-                  className="text-[#176B87] bg-[#EEEEEE] w-24 h-10 rounded-full"
+                  className="bg-[#EEEEEE] text-[#176B87] w-24 h-10 rounded-full"
                   onClick={onLogout}
                 >
                   Logout
