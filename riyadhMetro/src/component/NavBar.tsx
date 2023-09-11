@@ -8,28 +8,36 @@ interface NavbarProps {
   onLogout: () => void;
 }
 
-
-  const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, onLogin, onSignup, onLogout }) => {
-    return (
-      <nav className='h-80px absolute w-full z-20'>
-        <ul className='flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]'>
+const Navbar: React.FC<NavbarProps> = ({
+  isLoggedIn,
+  onLogin,
+  onSignup,
+  onLogout,
+}) => {
+  return (
+    <nav className="h-80px absolute w-full z-20">
+      <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
         {!isLoggedIn && (
-            <>
-            <div className='flex flex-row justify-between items-center w-3/5'>
-          <li>
-            <a href="/"><img className='w-36' src={Logo}></img></a>
-          </li>
-          <li>
-            <a href="/">About</a>
-          </li>
-          <li>
-            <a href="/">Stations</a>
-          </li>
-          <li>
-            <a href="/" className='text-[#176B87]'>Services</a>
-          </li>
-          </div>
-          <div className='flex flex-row items-center justify-around w-1/5'>
+          <>
+            <div className="flex flex-row justify-between items-center w-3/5">
+              <li>
+                <a href="/">
+                  <img className="w-36" src={Logo}></img>
+                </a>
+              </li>
+              <li>
+                <a href="/">About</a>
+              </li>
+              <li>
+                <a href="/">Stations</a>
+              </li>
+              <li>
+                <a href="/" className="text-[#176B87]">
+                  Services
+                </a>
+              </li>
+            </div>
+            <div className="flex flex-row items-center justify-around w-1/5">
               <li>
                 <a href="/login">
                   {" "}
@@ -51,21 +59,23 @@ interface NavbarProps {
                   </button>
                 </a>
               </li>
-              </div>
-            </>
-          )}
-          {isLoggedIn && (
-            <>
-            <div className='flex flex-row justify-between items-center w-3/6'>
-            <li>
-              <a href="/home"><img className='w-36' src={Logo}></img></a>
-            </li>
-            <li>
-              <a href="/home">Home</a>
-            </li>
-            <li>
-              <a href="/bookings">Manage Bookings</a>
-            </li>
+            </div>
+          </>
+        )}
+        {isLoggedIn && (
+          <>
+            <div className="flex flex-row justify-between items-center w-3/6">
+              <li>
+                <a href="/home">
+                  <img className="w-36" src={Logo}></img>
+                </a>
+              </li>
+              <li>
+                <a href="/home">Home</a>
+              </li>
+              <li>
+                <a href="/bookings">Manage Bookings</a>
+              </li>
             </div>
             <div className="flex flex-row items-center justify-around w-1/5">
               <li>
@@ -77,12 +87,11 @@ interface NavbarProps {
                 </button>
               </li>
             </div>
-            </>
-          )}
-        
-        </ul>
-      </nav>
-    );
-  };
-  
-  export default Navbar;
+          </>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
