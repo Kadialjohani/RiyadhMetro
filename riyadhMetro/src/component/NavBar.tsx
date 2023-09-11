@@ -15,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   return (
+    
     <nav className="h-80px absolute w-full z-20">
       <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
         {!isLoggedIn && (
@@ -72,6 +73,9 @@ const Navbar: React.FC<NavbarProps> = ({
               </li>
               <li>
                 <a href="/home">Home</a>
+              </li>
+              <li>
+                <a href="/home">Homett</a>
               </li>
               <li>
                 <a href="/bookings">Manage Bookings</a>
