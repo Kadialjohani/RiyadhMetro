@@ -15,11 +15,13 @@ const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   return (
+    <>
     
-    <nav className="h-80px absolute w-full z-20">
-      <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
+    
         {!isLoggedIn && (
           <>
+          <nav className="h-80px absolute w-full z-20">
+      <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
             <div className="flex flex-row justify-between items-center w-3/5">
               <li>
                 <a href="/">
@@ -61,10 +63,14 @@ const Navbar: React.FC<NavbarProps> = ({
                 </a>
               </li>
             </div>
+            </ul>
+            </nav>
           </>
         )}
         {isLoggedIn && (
           <>
+          <nav className="h-80px bg-red-400 w-full">
+      <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
             <div className="flex flex-row justify-between items-center w-3/6">
               <li>
                 <a href="/home">
@@ -74,9 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <li>
                 <a href="/home">Home</a>
               </li>
-              <li>
-                <a href="/home">Homett</a>
-              </li>
+              
               <li>
                 <a href="/bookings">Manage Bookings</a>
               </li>
@@ -91,10 +95,12 @@ const Navbar: React.FC<NavbarProps> = ({
                 </button>
               </li>
             </div>
+            </ul>
+    </nav>
           </>
         )}
-      </ul>
-    </nav>
+      
+    </>
   );
 };
 
