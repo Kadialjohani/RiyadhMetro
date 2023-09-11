@@ -10,6 +10,7 @@ interface details {
   to: string,
   date: string,
   price: number,
+  onclick:string
 }  
 
 export default function Ticket(props:details) {
@@ -35,7 +36,7 @@ export default function Ticket(props:details) {
                 <div className='absolute flex flex-col h-36 justify-between top-10 right-24'>
                   <div className='flex flex-row justify-between w-52'>
                   <button className='mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-20 h-10 rounded-full'><FontAwesomeIcon icon={faPenToSquare} /></button>
-                  <button className='mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#871717] w-20 h-10 rounded-full'><FontAwesomeIcon icon={faTrash} /></button>
+                  <button onClick={props.onclick} className='mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#871717] w-20 h-10 rounded-full'><FontAwesomeIcon icon={faTrash} /></button>
                   </div>
                   <div className='flex flex-row justify-center text-6xl font-bold'>
                     <p className='text-[#64CCC5]'>{props.price}</p>
