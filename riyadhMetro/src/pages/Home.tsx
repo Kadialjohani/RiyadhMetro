@@ -384,12 +384,14 @@ export default function Home() {
             </div>
           </div>
           <div className="absolute flex flex-col h-36 justify-between top-8 right-20">
-            <button
-              onClick={Book}
-              className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full"
-            >
-              Book
-            </button>
+            <a href="/bookings">
+              <button
+                onClick={Book}
+                className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full"
+              >
+                Book
+              </button>
+            </a>
             <div className="flex flex-row justify-center text-6xl font-bold">
               <p className="text-[#64CCC5]">{price}</p>
               <h1 className="text-[#176B87]">$</h1>
