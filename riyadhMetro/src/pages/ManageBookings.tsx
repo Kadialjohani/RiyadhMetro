@@ -26,6 +26,18 @@ export default function ManageBookings() {
         setList(res.data);
       });
   }, [list]);
+  // del
+  const deleteTicket = (id: string) => {
+    axios
+      .delete(`https://64fc603b605a026163ae6c99.mockapi.io/tickets/${id}`)
+      .then(() => {
+        setList(
+          list.filter((del) => {
+            return del.id !== id;
+          })
+        );
+      });
+  };
 // log in
   const handleLogin = () => {
     // Perform login logic here
@@ -50,7 +62,7 @@ export default function ManageBookings() {
       {list.map((item) => {
         return (
           <div key={item.id}>
-            <Ticket from={item.from} to={item.to} date={item.date} price={item.price.toString()}></Ticket>
+            <Ticket from={item.from} to={item.to} date={item.date} price={item.price.toString()} onclick={() => deleteTicket(item.id)}></Ticket>
           </div>
         )
         })} 
