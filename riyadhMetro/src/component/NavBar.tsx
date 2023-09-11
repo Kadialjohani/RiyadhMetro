@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../assets/Logo.png";
+import Logo2 from "../assets/Logo2.png"
 
 interface NavbarProps {
   isLoggedIn: boolean;
@@ -25,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="flex flex-row justify-between items-center w-3/5">
               <li>
                 <a href="/">
-                  <img className="w-36" src={Logo}></img>
+                  <img className="w-36" src={Logo2}></img>
                 </a>
               </li>
               <li>
@@ -35,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <a href="/">Stations</a>
               </li>
               <li>
-                <a href="/" className="text-[#176B87]">
+                <a href="/" className="">
                   Services
                 </a>
               </li>
@@ -45,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <a href="/login">
                   {" "}
                   <button
-                    className="border-2 border-[#176B87] text-[#176B87] w-24 h-10 rounded-full"
+                    className="border-2 border-[#EEEEEE] text-[#EEEEEE] w-24 h-10 rounded-full"
                     onClick={onLogin}
                   >
                     Login
@@ -55,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <li>
                 <a href="/signup">
                   <button
-                    className="bg-[#176B87] w-24 h-10 rounded-full"
+                    className="bg-[#EEEEEE] text-[#176B87] w-24 h-10 rounded-full"
                     onClick={onSignup}
                   >
                     Signup
@@ -69,12 +70,12 @@ const Navbar: React.FC<NavbarProps> = ({
         )}
         {isLoggedIn && (
           <>
-          <nav className="h-80px bg-red-400 w-full">
+          <nav className="h-80px bg-gradient-to-b from-[#64CCC5] to-[#053B50] w-full">
       <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
             <div className="flex flex-row justify-between items-center w-3/6">
               <li>
                 <a href="/home">
-                  <img className="w-36" src={Logo}></img>
+                  <img className="w-36" src={Logo2}></img>
                 </a>
               </li>
               <li>
@@ -88,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="flex flex-row items-center justify-around w-1/5">
               <li>
                 <button
-                  className="bg-[#176B87] w-24 h-10 rounded-full"
+                  className="bg-[#EEEEEE] text-[#176B87] w-24 h-10 rounded-full"
                   onClick={onLogout}
                 >
                   Logout
