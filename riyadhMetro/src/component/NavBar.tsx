@@ -8,6 +8,7 @@ interface NavbarProps {
   onLogout: () => void;
 }
 
+
 const Navbar: React.FC<NavbarProps> = ({
   isLoggedIn,
   onLogin,
@@ -38,6 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </li>
             </div>
             <div className="flex flex-row items-center justify-around w-1/5">
+
               <li>
                 <a href="/login">
                   {" "}
@@ -59,6 +61,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   </button>
                 </a>
               </li>
+
+
             </div>
           </>
         )}
@@ -77,21 +81,5 @@ const Navbar: React.FC<NavbarProps> = ({
                 <a href="/bookings">Manage Bookings</a>
               </li>
             </div>
-            <div className="flex flex-row items-center justify-around w-1/5">
-              <li>
-                <button
-                  className="bg-[#176B87] w-24 h-10 rounded-full"
-                  onClick={onLogout}
-                >
-                  Logout
-                </button>
-              </li>
-            </div>
-          </>
-        )}
-      </ul>
-    </nav>
-  );
-};
 
-export default Navbar;
+

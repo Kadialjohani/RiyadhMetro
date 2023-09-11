@@ -44,10 +44,10 @@ export default function ManageBookings() {
 
   return (
     <div>
-      <div className='h-[250vh] w-full flex flex-col bg-gradient-to-b from-[#64CCC5] to-[#053B50] relative'>
+      
       <NavBar isLoggedIn={!isLoggedIn} onLogin={handleLogin} onSignup={handleSignup} onLogout={handleLogout} ></NavBar>
-      <div className='bg-[#053B50] w-3/5 h-40 rounded-lg text-4xl font-bold text-[#EEEEEE] flex justify-center items-center absolute top-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>Manage My Bookings</div>
-      <div className='flex-col w-3/5 h-fit flex justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+      
+      <div className='flex-col border-2 border-red-400 w-full h-screen flex justify-center'>
       {list.map((item) => {
         return (
           <div key={item.id}>
@@ -59,8 +59,8 @@ export default function ManageBookings() {
       
 
       </div>
-      </div>
-      <div className='h-5 w-full bg-gradient-to-b flex from-[#053B50] to-[#64CCC5] '></div>
+     
+     
       {/* footer */}
       <Footer isLoggedIn={!isLoggedIn}></Footer>
     </div>
