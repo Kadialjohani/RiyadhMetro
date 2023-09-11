@@ -40,7 +40,6 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="flex flex-row items-center justify-around w-1/5">
               <li>
                 <a href="/login">
-                  {" "}
                   <button
                     className="border-2 border-[#176B87] text-[#176B87] w-24 h-10 rounded-full"
                     onClick={onLogin}
