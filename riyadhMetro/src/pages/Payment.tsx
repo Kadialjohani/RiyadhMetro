@@ -6,18 +6,18 @@ const stripePromise = loadStripe(
 );
 
 function showAlert() {
-  alert("Thank you!");
+  alert("This is an alert message!");
 }
 
 export default function Payment() {
   return (
-    <div>
+    <div className="payment-container">
       <h1>Payment Form</h1>
       <Elements stripe={stripePromise}>
         <form id="pay" className="payment-form">
           <label htmlFor="card-element">Card Details</label>
           <CardElement className="card-element" />
-          <button onClick={showAlert} type="submit">
+          <button onClick={showAlert} type="submit" className="pay-button">
             Pay
           </button>
         </form>
