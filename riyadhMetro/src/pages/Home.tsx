@@ -4,6 +4,7 @@ import Footer from "../component/Footer";
 import TicketForm from "../assets/TicketForm.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 import React, { useState, useEffect } from "react";
 import {
@@ -35,12 +36,13 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // post Ticket
   const [list, setList] = React.useState<info[]>([]);
-  const [tickets, setTickets] = React.useState({
-    from: "",
-    to: "",
-    date: "",
-    price: "",
-  });
+  // const [tickets, setTickets] = React.useState({
+  //   from: "",
+  //   to: "",
+  //   date: "",
+  //   price: "",
+  // });
+  const [date, setDate] = React.useState()
 
   useEffect(() => {
     axios
@@ -50,19 +52,21 @@ export default function Home() {
       });
   }, []);
 
+  const nav = useNavigate()
   const Book = () => {
     axios
       .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
         from: selectedStation1?.name || "",
         to: selectedStation2?.name || "",
-        date: tickets.date,
+        date: date,
         price: price,
       })
       .then((res) => {
         setList([...list, res.data]);
-        setTickets({ from: "", to: "", date: "", price: "" });
+        setDate(date)
         // console.log(res));
       });
+      nav("/bookings")
   };
 
   // map
@@ -370,11 +374,11 @@ export default function Home() {
               <input
                 name="date"
                 className="p-1 rounded-r-md w-40 border-2 border-l-0"
-                type="text"
+                type="date"
                 placeholder=""
-                value={tickets.date}
+              
                 onChange={(e) =>
-                  setTickets({ ...tickets, date: e.target.value })
+                  setDate(e.target.value)
                 }
               ></input>
             </div>

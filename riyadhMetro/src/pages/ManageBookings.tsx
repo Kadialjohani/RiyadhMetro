@@ -44,7 +44,7 @@ export default function ManageBookings() {
 
   return (
     <div>
-      <div className='h-[250vh] w-full flex flex-col bg-[#EEEEEE] relative'>
+      <div className='h-[250vh] h-max-[250vh] w-full flex flex-col bg-[#EEEEEE] relative'>
       <NavBar isLoggedIn={!isLoggedIn} onLogin={handleLogin} onSignup={handleSignup} onLogout={handleLogout} ></NavBar>
       <div className='flex-col w-4/5 h-fit flex p-5 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
       {list.map((item) => {
