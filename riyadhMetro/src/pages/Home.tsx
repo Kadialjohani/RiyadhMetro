@@ -4,7 +4,7 @@ import Footer from "../component/Footer";
 import TicketForm from "../assets/TicketForm.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+
 
 import React, { useState, useEffect } from "react";
 import {
@@ -52,7 +52,7 @@ export default function Home() {
       });
   }, []);
 
-  const nav = useNavigate()
+  
   const Book = () => {
     axios
       .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
@@ -67,6 +67,7 @@ export default function Home() {
         // console.log(res));
         
       });
+      
   };
 
   // map
