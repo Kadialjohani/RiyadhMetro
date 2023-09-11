@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import NavBar from '../component/NavBar'
 import Footer from '../component/Footer'
 import Ticket from '../component/Ticket'
+import Swal from 'sweetalert2'
 
 interface info {
   id:number
@@ -34,15 +35,31 @@ export default function ManageBookings() {
   }, [list]);
   // del
   const deleteTicket = (id: string) => {
-    axios
-      .delete(`https://64fc603b605a026163ae6c99.mockapi.io/tickets/${id}`)
-      .then(() => {
-        setList(
-          list.filter((del) => {
-            return del.id !== id;
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+        .delete(`https://64fc603b605a026163ae6c99.mockapi.io/tickets/${id}`)
+        .then(() => {setList(
+          list.filter((item) => {
+            return item.id !== id;
+            
           })
-        );
-      });
+        )}) 
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   };
 // log in
   const handleLogin = () => {
