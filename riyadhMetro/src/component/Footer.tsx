@@ -1,5 +1,7 @@
 import React from 'react'
 import Logo from '../assets/Logo.png'
+import Logo2 from "../assets/Logo2.png"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faSquareXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -43,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) =>  {
           </li>
           
               <li>
-              <a href="/"><img className='w-36' src={Logo}></img></a>
+              <a href="/"><img className='w-36' src={Logo2}></img></a>
               </li>
               
               </div>
@@ -72,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) =>  {
               <a href="/home">Home</a>
             </li>
               <li>
-              <a href="/home"><img className='w-36' src={Logo}></img></a>
+              <a href="/home"><img className='w-36' src={Logo2}></img></a>
               </li>
               
               </div>
