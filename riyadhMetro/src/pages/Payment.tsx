@@ -16,13 +16,6 @@ export default function Payment() {
   //   nav("/bookings")
     // post code
     const showAlert = () => {
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Successful Payment',
-        showConfirmButton: false,
-        timer: 1500
-      })
       axios
         .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
           from: localStorage.getItem("from"),
@@ -36,29 +29,26 @@ export default function Payment() {
           console.log(res));
           
           
-        nav("/bookings")
+       
         
     };
   
 
   return (
+
+    
+
     <div className="bg-[#176B87] h-screen flex flex-col justify-center items-center">
     <div className="rounded-xl bg-white w-3/4 flex flex-col p-5">
       <Ticket from={localStorage.getItem("from")} to={localStorage.getItem("to")} date={localStorage.getItem("date")} price={localStorage.getItem("price").toString()}></Ticket>
     {/* {localStorage.getItem("from")} */}
-    <div className="payment-container">
-      <h1 className=" font-bold text-center text-2xl text-[#176B87]">Payment Form</h1>
-      <Elements stripe={stripePromise}>
-        <form id="pay" className="payment-form">
-          <label className="text-[#176B87]" htmlFor="card-element">Card Details</label>
-          <CardElement className="card-element"/>
-          <button onClick={showAlert} type="submit" className="pay-button rounded-3xl w-72 h-12 font-bold text-xl bg-[#64CCC5] text-[#053B50] mt-5">
-            Pay
-          </button>
-        </form>
-      </Elements>
+    <div>
+      <a href="https://buy.stripe.com/test_bIYaHObp12fjeaI144"><button onClick={showAlert} className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full">Pay</button></a>
     </div>
     </div>
     </div>
   );
 }
+
+
+

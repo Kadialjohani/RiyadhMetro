@@ -29,8 +29,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   <img className="w-36" src={Logo2}></img>
                 </a>
               </li>
-              <li>
-                <a href="#about">About</a>
+              <li >
+                <a  href="#about">About</a>
               </li>
               <li>
                 <a href="#stations">Stations</a>
