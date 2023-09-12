@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Ticket from "../component/Ticket";
+import Swal from 'sweetalert2'
 
 const stripePromise = loadStripe(
   "pk_test_51NpA9ABjKC9tyQ3OgsLeWsL158hTYR1HoUiictaRKpZ5pmUyX0dHgXjlyY7qNjhODmJALNjpZooX65ht341fgwH700oFp2426t"
@@ -15,6 +16,13 @@ export default function Payment() {
   //   nav("/bookings")
     // post code
     const showAlert = () => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Successful Payment',
+        showConfirmButton: false,
+        timer: 1500
+      })
       axios
         .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
           from: localStorage.getItem("from"),
@@ -27,7 +35,7 @@ export default function Payment() {
           // setDate(date)
           console.log(res));
           
-        
+          
         nav("/bookings")
         
     };
