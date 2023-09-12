@@ -43,7 +43,7 @@ export default function Payment() {
     {/* {localStorage.getItem("from")} */}
     <div>
 
-      <a href="https://buy.stripe.com/test_5kA3exdvr7mN5pK6oo">Payment</a>
+      <a href="https://buy.stripe.com/test_bIYaHObp12fjeaI144"><button onClick={showAlert} className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full">Pay For Ticket</button></a>
 
     </div>
     </div>
