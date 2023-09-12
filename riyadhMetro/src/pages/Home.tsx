@@ -53,21 +53,35 @@ export default function Home() {
   }, []);
 
   const nav = useNavigate()
-  const Book = () => {
-    axios
-      .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
-        from: selectedStation1?.name || "",
-        to: selectedStation2?.name || "",
-        date: date,
-        price: price,
-      })
-      .then((res) => {
-        setList([...list, res.data]);
-        setDate(date)
-        // console.log(res));
+  // const Book = () => {
+  //   axios
+  //     .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
+  //       from: selectedStation1?.name || "",
+  //       to: selectedStation2?.name || "",
+  //       date: date,
+  //       price: price,
+  //     })
+  //     .then((res) => {
+  //       setList([...list, res.data]);
+  //       setDate(date)
+  //       // console.log(res));
         
-      });
-      nav("/bookings")
+  //     });
+  //     nav("/bookings")
+      
+  // };
+  // edited
+  const Book = () => {
+    localStorage.setItem("from", selectedStation1?.name || "")
+        // from: selectedStation1?.name || "",
+        // to: selectedStation2?.name || "",
+        localStorage.setItem("to", selectedStation2?.name || "")
+        // date: date,
+        localStorage.setItem("date", date)
+        // price: price,
+        localStorage.setItem("price", price)
+      
+      nav("/payment")
       
   };
 
