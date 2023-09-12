@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {!isLoggedIn && (
           <>
           <nav className="h-80px absolute w-full z-20">
-      <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
+      <ul className="flex flex-row justify-between mx-24 font-bold text-xl text-[#EEEEEE]">
             <div className="flex flex-row justify-between items-center w-3/5">
               <li>
                 <a href="/">
@@ -30,13 +30,13 @@ const Navbar: React.FC<NavbarProps> = ({
                 </a>
               </li>
               <li>
-                <a href="/">About</a>
+                <a href="#about">About</a>
               </li>
               <li>
-                <a href="/">Stations</a>
+                <a href="#stations">Stations</a>
               </li>
               <li>
-                <a href="/" className="">
+                <a href="#services" className="">
                   Services
                 </a>
               </li>
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {isLoggedIn && (
           <>
           <nav className="h-80px bg-gradient-to-b from-[#64CCC5] to-[#053B50] w-full">
-      <ul className="flex flex-row justify-between mx-24 font-bold text-lg text-[#EEEEEE]">
+      <ul className="flex flex-row justify-between mx-24 font-bold text-xl text-[#EEEEEE]">
             <div className="flex flex-row justify-between items-center w-3/6">
               <li>
                 <a href="/home">

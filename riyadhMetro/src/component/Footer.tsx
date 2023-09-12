@@ -34,14 +34,14 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) =>  {
           </div>
           <div className='flex flex-row justify-between items-center w-3/5'>
           <li>
-            <a href="/" className='text-[#176B87]'>Services</a>
+            <a href="#services" >Services</a>
           </li>
           
           <li>
-            <a href="/">Stations</a>
+            <a href="#stations">Stations</a>
           </li>
           <li>
-            <a href="/">About</a>
+            <a href="#about">About</a>
           </li>
           
               <li>
