@@ -46,6 +46,8 @@ export default function Payment() {
       <a href="https://buy.stripe.com/test_5kA3exdvr7mN5pK6oo">Payment</a>
 
     </div>
+    </div>
+    </div>
   );
 }
 
