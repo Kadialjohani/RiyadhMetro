@@ -59,7 +59,7 @@ export default function SignUpPage() {
   return (
     <>
     
-    <img className="w-36 absolute pl-2" src={Logo}></img>
+    <a href="/"><img className="w-36 absolute pl-2" src={Logo}></img></a>
     <div className="flex flex-row justify-between items-center w-full h-screen">
       <div className="flex flex-col items-center shadow-2xl shadow-[#176B87] border-2 border-[#176B87] w-1/2 h-3/4 ml-40 rounded-3xl">
         <h1 className="font-bold text-4xl my-8  text-[#176B87]">Sign Up</h1>
