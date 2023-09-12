@@ -4,6 +4,7 @@ import Footer from "../component/Footer";
 import TicketForm from "../assets/TicketForm.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 import React, { useState, useEffect } from "react";
 import {
@@ -35,12 +36,13 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // post Ticket
   const [list, setList] = React.useState<info[]>([]);
-  const [tickets, setTickets] = React.useState({
-    from: "",
-    to: "",
-    date: "",
-    price: "",
-  });
+  // const [tickets, setTickets] = React.useState({
+  //   from: "",
+  //   to: "",
+  //   date: "",
+  //   price: "",
+  // });
+  const [date, setDate] = React.useState()
 
   useEffect(() => {
     axios
@@ -50,19 +52,37 @@ export default function Home() {
       });
   }, []);
 
+  const nav = useNavigate()
+  // const Book = () => {
+  //   axios
+  //     .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
+  //       from: selectedStation1?.name || "",
+  //       to: selectedStation2?.name || "",
+  //       date: date,
+  //       price: price,
+  //     })
+  //     .then((res) => {
+  //       setList([...list, res.data]);
+  //       setDate(date)
+  //       // console.log(res));
+        
+  //     });
+  //     nav("/bookings")
+      
+  // };
+  // edited
   const Book = () => {
-    axios
-      .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
-        from: selectedStation1?.name || "",
-        to: selectedStation2?.name || "",
-        date: tickets.date,
-        price: price,
-      })
-      .then((res) => {
-        setList([...list, res.data]);
-        setTickets({ from: "", to: "", date: "", price: "" });
-        // console.log(res));
-      });
+    localStorage.setItem("from", selectedStation1?.name || "")
+        // from: selectedStation1?.name || "",
+        // to: selectedStation2?.name || "",
+        localStorage.setItem("to", selectedStation2?.name || "")
+        // date: date,
+        localStorage.setItem("date", date)
+        // price: price,
+        localStorage.setItem("price", price)
+      
+      nav("/payment")
+      
   };
 
   // map
@@ -263,7 +283,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="h-screen w-full bg-gradient-to-b from-[#64CCC5] to-[#053B50] relative">
+      <div className="h-[180vh] w-full bg-[#EEEEEE] relative">
         <NavBar
           isLoggedIn={!isLoggedIn}
           onLogin={handleLogin}
@@ -272,7 +292,8 @@ export default function Home() {
         />
         {/* Rest of your app */}
         {/* map */}
-        <div className="border-2 border-red-700 flex justify-center items-center h-4/5 w-4/5 m-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className='flex-col w-4/5 h-4/5 flex p-5 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <div className="border-2 border-[#176B87] flex justify-center items-center h-2/4 w-4/5 m-5 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
             <GoogleMap
               mapContainerStyle={containerStyle}
@@ -330,10 +351,10 @@ export default function Home() {
             </GoogleMap>
           </LoadScript>
         </div>
-      </div>
+      
       {/* the ticket */}
-      <div className="h-96 w-full bg-gradient-to-b flex from-[#053B50] to-[#36dacf] ">
-        <div className="flex justify-center items-center h-4/5 w-3/5 mx-auto  relative">
+      <div className="absolute h-fit w-4/5 ml-5 top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="flex justify-center items-center  h-fit w-fit mx-auto relative">
           <img className="" src={TicketForm}></img>
           <div className="absolute top-16 left-12">
             <h1 className="mb-2 text-xl font-bold text-[#176B87]">From</h1>
@@ -369,30 +390,32 @@ export default function Home() {
               <input
                 name="date"
                 className="p-1 rounded-r-md w-40 border-2 border-l-0"
-                type="text"
+                type="date"
                 placeholder=""
-                value={tickets.date}
+              
                 onChange={(e) =>
-                  setTickets({ ...tickets, date: e.target.value })
+                  setDate(e.target.value)
                 }
               ></input>
             </div>
           </div>
           <div className="absolute flex flex-col h-36 justify-between top-8 right-20">
-            <a href="/bookings">
+        
               <button
                 onClick={Book}
                 className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full"
               >
                 Book
               </button>
-            </a>
+            
             <div className="flex flex-row justify-center text-6xl font-bold">
               <p className="text-[#64CCC5]">{price}</p>
-              <h1 className="text-[#176B87]">$</h1>
+              <h1 className="text-[#176B87]">SAR</h1>
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
       {/* end of Map */}
 

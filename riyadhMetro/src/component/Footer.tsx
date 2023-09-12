@@ -1,5 +1,7 @@
 import React from 'react'
 import Logo from '../assets/Logo.png'
+import Logo2 from "../assets/Logo2.png"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faSquareXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -32,18 +34,18 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) =>  {
           </div>
           <div className='flex flex-row justify-between items-center w-3/5'>
           <li>
-            <a href="/" className='text-[#176B87]'>Services</a>
+            <a href="#services" >Services</a>
           </li>
           
           <li>
-            <a href="/">Stations</a>
+            <a href="#stations">Stations</a>
           </li>
           <li>
-            <a href="/">About</a>
+            <a href="#about">About</a>
           </li>
           
               <li>
-              <a href="/"><img className='w-36' src={Logo}></img></a>
+              <a href="/"><img className='w-36' src={Logo2}></img></a>
               </li>
               
               </div>
@@ -72,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) =>  {
               <a href="/home">Home</a>
             </li>
               <li>
-              <a href="/home"><img className='w-36' src={Logo}></img></a>
+              <a href="/home"><img className='w-36' src={Logo2}></img></a>
               </li>
               
               </div>
