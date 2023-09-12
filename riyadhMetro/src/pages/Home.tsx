@@ -410,7 +410,7 @@ export default function Home() {
             
             <div className="flex flex-row justify-center text-6xl font-bold">
               <p className="text-[#64CCC5]">{price}</p>
-              <h1 className="text-[#176B87]">$</h1>
+              <h1 className="text-[#176B87]">SAR</h1>
             </div>
           </div>
         </div>

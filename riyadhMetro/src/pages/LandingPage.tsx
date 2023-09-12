@@ -47,7 +47,7 @@ export default function LandingPage() {
         </video>
         <div className="z-10 w-full h-[88.5vh] bg-gradient-to-b from-[#64CCC5] to-[#053B50] opacity-75 absolute"></div>
         <div className="z-20 w-3/5 h-80 flex flex-col justify-center items-center border-2 border-[#EEEEEE] rounded-3xl top-96 left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute">
-          <h1 className="font-mono font-bold text-6xl mb-14 text-[#EEEEEE]">
+          <h1 className="font-bold text-6xl mb-14 text-[#EEEEEE]">
             We Transport Anywhere
           </h1>
           <a href="/login">
