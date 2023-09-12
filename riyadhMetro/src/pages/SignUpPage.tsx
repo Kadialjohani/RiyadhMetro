@@ -44,7 +44,13 @@ export default function SignUpPage() {
         });
       nav("/login");
     } else {
-      alert("Please enter a valid email and password (minimum 10 characters).");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid email and password (minimum 10 characters).',
+        
+      })
+      
     }
   };
   // nav
