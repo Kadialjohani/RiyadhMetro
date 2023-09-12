@@ -11,8 +11,8 @@ interface details {
   to: string,
   date: string,
   price: number,
-  deleteOnclick:string
-  pdfOnclick: string,
+  deleteOnclick?:string
+  
 }  
 
 export default function Ticket(props:details) {
