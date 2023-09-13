@@ -331,8 +331,8 @@ export default function Home() {
           </div>
 
           {/* the ticket */}
-          <div className="absolute h-fit lg:w-4/5 md:w-11/12 top-3/4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex justify-center items-center h-fit w-fit md:w-full lg:mx-auto relative">
+          <div className="absolute h-fit lg:w-4/5 md:w-11/12 w-11/12 top-3/4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="flex justify-center items-center border-4 h-fit md:w-full w-full lg:mx-auto relative">
               <img
                 className="lg:w-full md:w-full lg:h-full h-40 w-full"
                 src={TicketForm}
@@ -343,32 +343,32 @@ export default function Home() {
                 </h1>
                 <input
                   name="origin"
-                  className="p-1 rounded-md w-20 h-8 lg:w-48 lg:h-11 border-2"
+                  className="p-1 rounded-md text-sm w-20 md:w-32 h-8 lg:w-48 lg:h-11 border-2"
                   type="text"
                   placeholder="origin"
                   value={selectedStation1?.name || ""}
                   readOnly
                 ></input>
               </div>
-              <div className="absolute top-7 lg:top-16 lg:left-80">
+              <div className="absolute top-6 left-28 lg:top-16 lg:left-80 md:top-6 md:left-72">
                 <h1 className="lg:mb-2 lg:text-xl text-sm font-bold text-[#176B87]">
                   To:
                 </h1>
                 <input
                   name="destination"
-                  className="p-1 rounded-md w-20 h-8 lg:w-48 lg:h-11 border-2"
+                  className="p-1 rounded-md text-sm w-20 md:w-32 h-8 lg:w-48 lg:h-11 border-2"
                   type="text"
                   placeholder="destination"
                   value={selectedStation2?.name || ""}
                   readOnly
                 ></input>
               </div>
-              <div className="absolute lg:top-48 lg:left-52 md:left-40 right-40 top-[83px]">
+              <div className="absolute lg:top-48 lg:left-52 md:left-40 left-16 top-[85px]">
                 <h1 className="lg:mb-2 lg:text-xl  text-sm font-bold text-[#176B87]">
                   Date:
                 </h1>
                 <div className="flex flex-row">
-                  <button className="bg-white p-1 border-2 border-r-0 rounded-l-md">
+                  <button className="bg-white h-8 p-1 border-2 border-r-0 rounded-l-md">
                     <FontAwesomeIcon
                       className="text-[#D9D9D9]"
                       icon={faCalendarDays}
@@ -376,22 +376,22 @@ export default function Home() {
                   </button>
                   <input
                     name="date"
-                    className="p-1 rounded-r-md w-40 border-2 border-l-0"
+                    className="p-1 rounded-r-md lg:w-40 md:w-40 w-20 h-8 border-2 border-l-0"
                     type="date"
                     placeholder=""
                     onChange={(e) => setDate(e.target.value)}
                   ></input>
                 </div>
               </div>
-              <div className="absolute flex flex-col lg:h-40 justify-between lg:top-8 lg:left-[73.6%] left-64 mt-5 h-32 md:h-20 gap-y-4 md:top-2 md:left-[77%]">
+              <div className="absolute justify-center items-center flex flex-col lg:h-48 md:h-32 h-16 w-20 lg:w-60 md:w-40 gap-y-2 md:gap-y-5 lg:gap-y-10 lg:top-10 lg:right-14 md:right-12 right-8">
                 <button
                   onClick={Book}
-                  className="lg:mb-2 lg:text-2xl text-xl text-[#EEEEEE] font-bold bg-[#176B87] h-8 w-20 lg:w-40 lg:h-10 rounded-full"
+                  className="lg:mb-2 lg:text-2xl md:text-lg text-sm text-[#EEEEEE] font-bold bg-[#176B87] w-16 h-6 md:w-24 md:h-8 lg:w-40 lg:h-10 rounded-full"
                 >
                   Book
                 </button>
 
-                <div className="flex flex-row justify-center lg:text-6xl font-bold text-xl h-20 ">
+                <div className="flex flex-row justify-center gap-x-2 lg:text-6xl font-bold md:text-2xl text-xl h-20 ">
                   <p className="text-[#64CCC5]">{price}</p>
                   <h1 className="text-[#176B87]">SAR</h1>
                 </div>
