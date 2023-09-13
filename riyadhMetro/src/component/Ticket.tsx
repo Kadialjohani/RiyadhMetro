@@ -1,17 +1,15 @@
-import React from 'react'
 import TicketForm from '../assets/TicketForm.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { useRef } from 'react';
+import { MouseEventHandler } from 'react'
 
 interface details {
-  from: string,
-  to: string,
-  date: string,
-  price: number,
-  deleteOnclick?:string
+  from: string | null,
+  to: string | null,
+  date: string | null,
+  price: string | null,
+  deleteOnclick?: MouseEventHandler<HTMLButtonElement>
   
 }  
 
