@@ -29,7 +29,7 @@ export default function Ticket(props:details) {
                 </div>
 
                 <div className='absolute lg:top-60 lg:left-52 md:top-36 md:left-40 right-48 top-20'>
-                  <h1 className='lg:mb-2 md:mb-1 lg:text-2xl md:text-xl text-sm font-bold text-[#176B87]'>Date</h1>
+                  <h1 className='lg:mb-2 md:mb-1 lg:text-3xl md:text-xl text-sm font-bold text-[#176B87]'>Date</h1>
                   <div className='flex flex-row items-center'>
                   <FontAwesomeIcon className='text-[#176B87] lg:text-lg text-sm' icon={faCalendarDays}/>
                   <h1 className='lg:text-2xl text-sm md:text-xl font-bold text-[#64CCC5] pl-2'>{props.date}</h1>

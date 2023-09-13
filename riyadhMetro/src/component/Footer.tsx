@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) => {
   return (
 
     <div className="bg-gradient-to-b to-[#64CCC5] from-[#053B50] w-full lg:h-40 md:h-[85px] h-[67px] flex">
-      <ul className="flex flex-row lg:justify-between gap-6 justify-around lg:items-center items-center w-full lg:mx-24 font-bold lg:text-lg text-sm text-[#EEEEEE]">
+      <ul className="flex flex-row lg:justify-between gap-6 justify-around lg:items-center items-center w-full lg:mx-24 font-bold lg:text-2xl md:text-xl text-sm  text-[#EEEEEE]">
 
         {!isLoggedIn && (
           <>

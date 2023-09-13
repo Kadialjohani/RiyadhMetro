@@ -30,7 +30,6 @@ interface Station {
 // actual code
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
 
   const [date, setDate] = React.useState("");
 
@@ -38,31 +37,32 @@ export default function Home() {
 
   // send ticket to payment page
   const Book = () => {
-    if(selectedStation1?.name && selectedStation2?.name && date){
-    localStorage.setItem("from", selectedStation1?.name || "");
-    localStorage.setItem("to", selectedStation2?.name || "");
-    localStorage.setItem("date", date);
-    localStorage.setItem("price", price !== null ? price.toString() : "");
-    nav("/payment");
-  }else {
-    Swal.fire({
-      icon: "error",
-      title: "uncompleted...",
-      text: "You left required fields empty",
-    });
-  }}
+    if (selectedStation1?.name && selectedStation2?.name && date) {
+      localStorage.setItem("from", selectedStation1?.name || "");
+      localStorage.setItem("to", selectedStation2?.name || "");
+      localStorage.setItem("date", date);
+      localStorage.setItem("price", price !== null ? price.toString() : "");
+      nav("/payment");
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "uncompleted...",
+        text: "You left required fields empty",
+      });
+    }
+  };
 
-  if(localStorage.getItem("isLogin") === "true"){
-    nav("/home")
+  if (localStorage.getItem("isLogin") === "true") {
+    nav("/home");
   } else {
-  nav("/login")
+    nav("/login");
   }
 
   // logout
   const handleLogout = () => {
-  setIsLoggedIn(false);
-  localStorage.setItem("isLogin", "false")
-  }
+    setIsLoggedIn(false);
+    localStorage.setItem("isLogin", "false");
+  };
 
   // map
   const containerStyle = {
@@ -249,13 +249,11 @@ export default function Home() {
   //only used for the state for tha nav component
   const handleLogin = () => {
     setIsLoggedIn(true);
-    
   };
   const handleSignup = () => {
     setIsLoggedIn(true);
   };
 
-  
   // --- return ---
   return (
     <div>
@@ -267,8 +265,11 @@ export default function Home() {
           onLogout={handleLogout}
         />
         {/* map */}
-        <div className="flex-col w-[99%] h-[60%] md:w-[99%] lg:w-4/5 lg:h-4/5 p-5 rounded-xl bg-white justify-center absolute lg:top-1/2 top-[40%] left-48 md:left-[50%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <h1 className="text-[#176B87] flex w-fit lg:left-[40%] lg:top-[4%] lg:text-4xl md:left-[40%] md:top-[2%] md:text-2xl left-[32%] top-[0%] text-lg absolute">Book a Ticket</h1>
+        <h1 className="text-[#176B87] flex w-fit lg:left-[40%] lg:top-[9%] lg:text-5xl md:left-[35%] md:top-[7%] md:text-3xl left-[30%] top-[7%] text-xl absolute">
+          Book a Ticket
+        </h1>
+
+        <div className="flex-col w-[99%] h-[60%] md:w-[99%] lg:w-4/5 lg:h-[70%] p-5 rounded-xl bg-white justify-center absolute lg:top-1/2 top-[40%] left-48 md:left-[50%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="border-2 border-[#176B87] flex justify-center items-center lg:h-2/4 h-[60%] md:w-11/12 lg:w-4/5 w-11/12  md:mt-32 mt-20 absolute top-1/4 lg:top-1/4 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
             <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
               <GoogleMap
