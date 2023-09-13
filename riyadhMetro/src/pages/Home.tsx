@@ -78,7 +78,7 @@ export default function Home() {
   const locations: Station[] = [
     {
       id: 1,
-      name: "KAFD Metro Station",
+      name: "KAFD Station",
       location: {
         lat: 24.767534897475542,
         lng: 46.64309468219314,
@@ -94,7 +94,7 @@ export default function Home() {
     },
     {
       id: 3,
-      name: "3E2 Riyadh Metro Station - Qasr Al-Hokm",
+      name: "Qasr Al-Hokm Station",
       location: {
         lat: 24.62864875341536,
         lng: 46.71629091102469,
@@ -102,7 +102,7 @@ export default function Home() {
     },
     {
       id: 4,
-      name: "Riyadh Metro Station - Western Station",
+      name: "Western Station",
       location: {
         lat: 24.581902433263505,
         lng: 46.614655595681036,
@@ -331,13 +331,13 @@ export default function Home() {
           </div>
 
           {/* the ticket */}
-          <div className="absolute h-fit lg:w-4/5 w-11/12 md:w-11/12 lg:ml-5 top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex justify-center items-center h-fit w-fit lg:mx-auto relative">
+          <div className="absolute h-fit lg:w-4/5 md:w-11/12 top-3/4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="flex justify-center items-center h-fit w-fit md:w-full lg:mx-auto relative">
               <img
-                className="lg:w-full lg:h-full h-40 w-full md:w-full "
+                className="lg:w-full md:w-full lg:h-full h-40 w-full"
                 src={TicketForm}
               ></img>
-              <div className="absolute lg:top-16 lg:left-12 left-2 top-6">
+              <div className="absolute lg:top-16 lg:left-12 md:left-10 left-2 top-6">
                 <h1 className="lg:mb-2 lg:text-xl text-sm font-bold text-[#176B87]">
                   From:
                 </h1>
@@ -363,8 +363,8 @@ export default function Home() {
                   readOnly
                 ></input>
               </div>
-              <div className="absolute lg:top-48 lg:left-52 md:right-52  right-40 mt-2 top-[83px]">
-                <h1 className="lg:mb-2 lg:text-xl text-sm font-bold text-[#176B87]">
+              <div className="absolute lg:top-48 lg:left-52 md:left-40 right-40 top-[83px]">
+                <h1 className="lg:mb-2 lg:text-xl  text-sm font-bold text-[#176B87]">
                   Date:
                 </h1>
                 <div className="flex flex-row">
@@ -383,7 +383,7 @@ export default function Home() {
                   ></input>
                 </div>
               </div>
-              <div className="absolute flex flex-col lg:h-36 justify-between lg:top-8 lg:left-[73.6%] left-64 mt-5 h-32 md:h-28 md:left-[74.6%]">
+              <div className="absolute flex flex-col lg:h-40 justify-between lg:top-8 lg:left-[73.6%] left-64 mt-5 h-32 md:h-20 gap-y-4 md:top-2 md:left-[77%]">
                 <button
                   onClick={Book}
                   className="lg:mb-2 lg:text-2xl text-xl text-[#EEEEEE] font-bold bg-[#176B87] h-8 w-20 lg:w-40 lg:h-10 rounded-full"
