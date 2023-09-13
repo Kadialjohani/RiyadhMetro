@@ -60,6 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 </li>
               </div>
             </ul>
+
           </nav>
         </>
       )}
@@ -91,6 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   </button>
                 </li>
               </div>
+
             </ul>
           </nav>
         </>

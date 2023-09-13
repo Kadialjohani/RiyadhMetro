@@ -11,8 +11,10 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ isLoggedIn }) => {
   return (
+
     <div className="bg-[#053B50] w-full lg:h-40 md:h-[75px] h-[65px] flex">
       <ul className="flex flex-row lg:justify-between gap-6 justify-around lg:items-center items-center w-full lg:mx-24 font-bold lg:text-lg text-sm text-[#EEEEEE]">
+
         {!isLoggedIn && (
           <>
             <div className="flex flex-row lg:items-center lg:justify-between items-center justify-between w-2/12 md:text-4xl lg:text-6xl lg:w-1/6">
@@ -49,6 +51,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) => {
                   <img className="lg:w-36 md:w-36 w-16" src={Logo2}></img>
                 </a>
               </li>
+
             </div>
           </>
         )}
@@ -78,6 +81,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) => {
               <li>
                 <a href="/home">Home</a>
               </li>
+
               <li>
                 <a href="/home">
                   <img className="lg:w-36 md:w-36 w-16" src={Logo2}></img>
