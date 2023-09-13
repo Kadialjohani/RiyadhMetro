@@ -1,11 +1,9 @@
-import axios from "axios";
 import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 import TicketForm from "../assets/TicketForm.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-
 import React, { useState, useEffect } from "react";
 import {
   GoogleMap,
@@ -16,7 +14,9 @@ import {
 import { DirectionsService, DirectionsRenderer } from "@react-google-maps/api";
 import icon1 from "../assets/icons8-metro-48.png";
 import icon2 from "../assets/icons8-user-30.png";
+import Swal from "sweetalert2";
 
+// types
 interface Location {
   lat: number;
   lng: number;
@@ -26,57 +26,45 @@ interface Station {
   name: string;
   location: Location;
 }
-interface info {
-  from: string;
-  to: string;
-  date: string;
-  price: number;
-}
+
+// actual code
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // post Ticket
-  const [list, setList] = React.useState<info[]>([]);
+  
 
   const [date, setDate] = React.useState("");
 
-  useEffect(() => {
-    axios
-      .get("https://64fc603b605a026163ae6c99.mockapi.io/tickets")
-      .then((res) => {
-        setList(res.data);
-      });
-  }, []);
-
   const nav = useNavigate();
 
-  
+  // send ticket to payment page
   const Book = () => {
+    if(selectedStation1?.name && selectedStation2?.name && date){
     localStorage.setItem("from", selectedStation1?.name || "");
-    // from: selectedStation1?.name || "",
-    // to: selectedStation2?.name || "",
     localStorage.setItem("to", selectedStation2?.name || "");
-    // date: date,
     localStorage.setItem("date", date);
-    // price: price,
-    localStorage.setItem("price", price);
-
+    localStorage.setItem("price", price !== null ? price.toString() : "");
     nav("/payment");
-  };
+  }else {
+    Swal.fire({
+      icon: "error",
+      title: "uncompleted...",
+      text: "You left required fields empty",
+    });
+  }}
 
   if(localStorage.getItem("isLogin") === "true"){
     nav("/home")
-} else {
+  } else {
   nav("/login")
-}
+  }
 
-const handleLogout = () => {
-  // Perform logout logic here
+  // logout
+  const handleLogout = () => {
   setIsLoggedIn(false);
-  localStorage.setItem("isLogin", false)
-};
+  localStorage.setItem("isLogin", "false")
+  }
 
   // map
-
   const containerStyle = {
     width: "100%",
     height: "100%",
@@ -135,6 +123,7 @@ const handleLogout = () => {
     null
   );
 
+  // cal distance
   const calculateDistance = (station1: Station, station2: Station): number => {
     const earthRadiusKm = 6371; // Radius of the Earth in kilometers
     const lat1 = station1.location.lat;
@@ -178,8 +167,8 @@ const handleLogout = () => {
       ? calculateDistance(selectedStation1, selectedStation2)
       : null;
 
+  //user location
   useEffect(() => {
-    // Get user's location
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -198,8 +187,8 @@ const handleLogout = () => {
     }
   }, []);
 
+  // Find nearest station
   useEffect(() => {
-    // Find nearest station
     if (userLocation) {
       let minDistance = Infinity;
       let nearest: Station | null = null;
@@ -217,11 +206,10 @@ const handleLogout = () => {
     }
   }, [userLocation]);
 
+  // Find directions between selected stations
   useEffect(() => {
     setDirections(null);
-
     if (selectedStation1 && selectedStation2) {
-      // Find directions between selected stations
       const directionsService = new google.maps.DirectionsService();
       directionsService.route(
         {
@@ -241,6 +229,7 @@ const handleLogout = () => {
   }, [selectedStation1, selectedStation2]);
   const [price, setPrice] = useState<number | null>(null);
 
+  // cal price
   useEffect(() => {
     if (distance !== null) {
       let calculatedPrice: number;
@@ -257,19 +246,17 @@ const handleLogout = () => {
     }
   }, [distance]);
 
-  
+  //only used for the state for tha nav component
   const handleLogin = () => {
-  
     setIsLoggedIn(true);
     
   };
   const handleSignup = () => {
-    
     setIsLoggedIn(true);
   };
 
   
-
+  // --- return ---
   return (
     <div>
       <div className="h-[180vh] w-full bg-[#EEEEEE] relative">
@@ -279,9 +266,9 @@ const handleLogout = () => {
           onSignup={handleSignup}
           onLogout={handleLogout}
         />
-        {/* Rest of your app */}
         {/* map */}
         <div className="flex-col w-[99%] h-[60%] md:w-[99%] lg:w-4/5 lg:h-4/5 p-5 rounded-xl bg-white justify-center absolute lg:top-1/2 top-[40%] left-48 md:left-[50%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <h1 className="text-[#176B87] flex w-fit lg:left-[40%] lg:top-[4%] lg:text-4xl md:left-[40%] md:top-[2%] md:text-2xl left-[32%] top-[0%] text-lg absolute">Book a Ticket</h1>
           <div className="border-2 border-[#176B87] flex justify-center items-center lg:h-2/4 h-[60%] md:w-11/12 lg:w-4/5 w-11/12  md:mt-32 mt-20 absolute top-1/4 lg:top-1/4 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
             <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
               <GoogleMap
@@ -340,6 +327,7 @@ const handleLogout = () => {
               </GoogleMap>
             </LoadScript>
           </div>
+          {/* end of Map */}
 
           {/* the ticket */}
           <div className="absolute h-fit lg:w-4/5 md:w-11/12 w-11/12 top-3/4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -411,7 +399,7 @@ const handleLogout = () => {
           </div>
         </div>
       </div>
-      {/* end of Map */}
+      {/* end of Ticket */}
 
       {/* footer */}
       <Footer isLoggedIn={!isLoggedIn}></Footer>

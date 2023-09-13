@@ -48,14 +48,14 @@ export default function SignUpPage() {
     } else {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "invalid...",
         text: "Please enter a valid email and password (minimum 10 characters).",
       });
     }
   }else {
     Swal.fire({
       icon: "error",
-      title: "Oops...",
+      title: "uncompleted...",
       text: "You left required fields empty",
     });
   }

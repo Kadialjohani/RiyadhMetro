@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
 
 interface info {
-  id:number
+  id: string
   from: string,
   to: string,
   date: string,
@@ -21,8 +21,9 @@ interface info {
 export default function ManageBookings() {
   // login state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   // for the pdf
-  const pdfRef = useRef()
+  const pdfRef = useRef<HTMLDivElement>(null)
 
   // get
   const [list, setList] = React.useState<info[]>([]);
@@ -83,11 +84,12 @@ export default function ManageBookings() {
   const handleLogout = () => {
     // Perform logout logic here
     setIsLoggedIn(false);
-    localStorage.setItem("isLogin", false)
+    localStorage.setItem("isLogin", "false")
   };
   // download btn
   const download = () => {
     const input = pdfRef.current;
+    if (input) {
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4', true);
@@ -100,23 +102,25 @@ export default function ManageBookings() {
       const imgY = 30;
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save('Metro-Ticket.pdf')
-    })}
+    })}}
 
   return (
     <div>
       <div className='lg:h-[250vh] md:h-screen h-screen w-full flex flex-col bg-[#EEEEEE] relative'>
       <NavBar isLoggedIn={!isLoggedIn} onLogin={handleLogin} onSignup={handleSignup} onLogout={handleLogout} ></NavBar>
       <div ref={pdfRef} className='flex-col lg:w-4/5 md:w-11/12 w-full h-fit flex lg:p-5 md:p-2 p-1 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+      <h1 className="text-[#176B87] flex w-fit lg:left-[40%] lg:top-[1%] lg:text-4xl md:left-[40%] md:top-[2%] md:text-2xl left-[32%] top-0 text-lg absolute">Your Tickets</h1>
+
       {list.map((item) => {
         return (
           <div  key={item.id}>
-            <Ticket  from={item.from} to={item.to} date={item.date} price={item.price.toString()} deleteOnclick={() => deleteTicket(item.id)} pdfOnclick={download}></Ticket>
+            <Ticket  from={item.from} to={item.to} date={item.date} price={item.price} deleteOnclick={() => deleteTicket(item.id)}></Ticket>
           </div>
         )
         })} 
       
       
-      <button className='mb-2 lg:text-xl md:text-lg sm:text-sm text-[#EEEEEE] font-bold bg-[#176B87] lg:w-36 lg:h-14 w-28 h-10 rounded-full' onClick={download}>download</button>
+      <button className='mb-2 lg:text-xl md:text-lg sm:text-sm text-[#EEEEEE] font-bold bg-[#176B87] lg:w-36 lg:h-14 w-28 h-10 rounded-full' onClick={download}>Download</button>
       </div>
       
       </div>
