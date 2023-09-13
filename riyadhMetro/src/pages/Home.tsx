@@ -42,7 +42,7 @@ export default function Home() {
   //   date: "",
   //   price: "",
   // });
-  const [date, setDate] = React.useState()
+  const [date, setDate] = React.useState();
 
   useEffect(() => {
     axios
@@ -52,7 +52,7 @@ export default function Home() {
       });
   }, []);
 
-  const nav = useNavigate()
+  const nav = useNavigate();
   // const Book = () => {
   //   axios
   //     .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
@@ -65,24 +65,23 @@ export default function Home() {
   //       setList([...list, res.data]);
   //       setDate(date)
   //       // console.log(res));
-        
+
   //     });
   //     nav("/bookings")
-      
+
   // };
   // edited
   const Book = () => {
-    localStorage.setItem("from", selectedStation1?.name || "")
-        // from: selectedStation1?.name || "",
-        // to: selectedStation2?.name || "",
-        localStorage.setItem("to", selectedStation2?.name || "")
-        // date: date,
-        localStorage.setItem("date", date)
-        // price: price,
-        localStorage.setItem("price", price)
-      
-      nav("/payment")
-      
+    localStorage.setItem("from", selectedStation1?.name || "");
+    // from: selectedStation1?.name || "",
+    // to: selectedStation2?.name || "",
+    localStorage.setItem("to", selectedStation2?.name || "");
+    // date: date,
+    localStorage.setItem("date", date);
+    // price: price,
+    localStorage.setItem("price", price);
+
+    nav("/payment");
   };
 
   // map
@@ -292,130 +291,126 @@ export default function Home() {
         />
         {/* Rest of your app */}
         {/* map */}
-        <div className='flex-col w-4/5 h-4/5 flex p-5 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-        <div className="border-2 border-[#176B87] flex justify-center items-center h-2/4 w-4/5 m-5 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
-            <GoogleMap
-              mapContainerStyle={containerStyle}
-              center={center}
-              zoom={11}
-              onLoad={(map) => {
-                if (directionsRenderer !== null) {
-                  directionsRenderer.setMap(map);
-                }
-              }}
-            >
-              {locations.map((item) => (
-                <Marker
-                  key={item.id}
-                  position={item.location}
-                  options={{ icon: icon1 }}
-                  onClick={() => handleStationClick(item)}
-                />
-              ))}
-              {userLocation && (
-                <Marker position={userLocation} options={{ icon: icon2 }} />
-              )}
-              {nearestStation && (
-                <InfoWindow
-                  position={nearestStation.location}
-                  onCloseClick={() => setSelectedStation(null)}
-                >
-                  <h1>Nearest Station: {nearestStation.name}</h1>
-                </InfoWindow>
-              )}
-              {directions && (
-                <DirectionsRenderer
-                  options={{
-                    directions: directions,
-                  }}
-                  onLoad={(directionsRenderer) => {
-                    setDirectionsRenderer(directionsRenderer);
-                  }}
-                />
-              )}
-              {nearestStation && selectedStation && !directions && (
-                <DirectionsService
-                  options={{
-                    destination: selectedStation.location,
-                    origin: nearestStation.location,
-                    travelMode: google.maps.TravelMode.DRIVING,
-                  }}
-                  callback={(response) => {
-                    if (response !== null) {
-                      setDirections(response);
-                    }
-                  }}
-                />
-              )}
-            </GoogleMap>
-          </LoadScript>
-        </div>
-      
-      {/* the ticket */}
-      <div className="absolute h-fit w-4/5 ml-5 top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <div className="flex justify-center items-center  h-fit w-fit mx-auto relative">
-          <img className="" src={TicketForm}></img>
-          <div className="absolute top-16 left-12">
-            <h1 className="mb-2 text-xl font-bold text-[#176B87]">From</h1>
-            <input
-              name="origin"
-              className="p-1 rounded-md w-40 border-2"
-              type="text"
-              placeholder="origin"
-              value={selectedStation1?.name || ""}
-              readOnly
-            ></input>
-          </div>
-          <div className="absolute top-16 left-80">
-            <h1 className="mb-2 text-xl font-bold text-[#176B87]">To</h1>
-            <input
-              name="destination"
-              className="p-1 rounded-md w-40 border-2"
-              type="text"
-              placeholder="destination"
-              value={selectedStation2?.name || ""}
-              readOnly
-            ></input>
-          </div>
-          <div className="absolute top-48 left-52">
-            <h1 className="mb-2 text-xl font-bold text-[#176B87]">Date</h1>
-            <div className="flex flex-row">
-              <button className="bg-white p-1 border-2 border-r-0 rounded-l-md">
-                <FontAwesomeIcon
-                  className="text-[#D9D9D9]"
-                  icon={faCalendarDays}
-                />
-              </button>
-              <input
-                name="date"
-                className="p-1 rounded-r-md w-40 border-2 border-l-0"
-                type="date"
-                placeholder=""
-              
-                onChange={(e) =>
-                  setDate(e.target.value)
-                }
-              ></input>
-            </div>
-          </div>
-          <div className="absolute flex flex-col h-36 justify-between top-8 right-20">
-        
-              <button
-                onClick={Book}
-                className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full"
+        <div className="flex-col w-4/5 h-4/5 flex p-5 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="border-2 border-[#176B87] flex justify-center items-center h-2/4 w-4/5 m-5 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
+              <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={11}
+                onLoad={(map) => {
+                  if (directionsRenderer !== null) {
+                    directionsRenderer.setMap(map);
+                  }
+                }}
               >
-                Book
-              </button>
-            
-            <div className="flex flex-row justify-center text-6xl font-bold">
-              <p className="text-[#64CCC5]">{price}</p>
-              <h1 className="text-[#176B87]">SAR</h1>
+                {locations.map((item) => (
+                  <Marker
+                    key={item.id}
+                    position={item.location}
+                    options={{ icon: icon1 }}
+                    onClick={() => handleStationClick(item)}
+                  />
+                ))}
+                {userLocation && (
+                  <Marker position={userLocation} options={{ icon: icon2 }} />
+                )}
+                {nearestStation && (
+                  <InfoWindow
+                    position={nearestStation.location}
+                    onCloseClick={() => setSelectedStation(null)}
+                  >
+                    <h1>Nearest Station: {nearestStation.name}</h1>
+                  </InfoWindow>
+                )}
+                {directions && (
+                  <DirectionsRenderer
+                    options={{
+                      directions: directions,
+                    }}
+                    onLoad={(directionsRenderer) => {
+                      setDirectionsRenderer(directionsRenderer);
+                    }}
+                  />
+                )}
+                {nearestStation && selectedStation && !directions && (
+                  <DirectionsService
+                    options={{
+                      destination: selectedStation.location,
+                      origin: nearestStation.location,
+                      travelMode: google.maps.TravelMode.DRIVING,
+                    }}
+                    callback={(response) => {
+                      if (response !== null) {
+                        setDirections(response);
+                      }
+                    }}
+                  />
+                )}
+              </GoogleMap>
+            </LoadScript>
+          </div>
+
+          {/* the ticket */}
+          <div className="absolute h-fit w-4/5 ml-5 top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="flex justify-center items-center  h-fit w-fit mx-auto relative">
+              <img className="" src={TicketForm}></img>
+              <div className="absolute top-16 left-12">
+                <h1 className="mb-2 text-xl font-bold text-[#176B87]">From</h1>
+                <input
+                  name="origin"
+                  className="p-1 rounded-md w-40 border-2"
+                  type="text"
+                  placeholder="origin"
+                  value={selectedStation1?.name || ""}
+                  readOnly
+                ></input>
+              </div>
+              <div className="absolute top-16 left-80">
+                <h1 className="mb-2 text-xl font-bold text-[#176B87]">To</h1>
+                <input
+                  name="destination"
+                  className="p-1 rounded-md w-40 border-2"
+                  type="text"
+                  placeholder="destination"
+                  value={selectedStation2?.name || ""}
+                  readOnly
+                ></input>
+              </div>
+              <div className="absolute top-48 left-52">
+                <h1 className="mb-2 text-xl font-bold text-[#176B87]">Date</h1>
+                <div className="flex flex-row">
+                  <button className="bg-white p-1 border-2 border-r-0 rounded-l-md">
+                    <FontAwesomeIcon
+                      className="text-[#D9D9D9]"
+                      icon={faCalendarDays}
+                    />
+                  </button>
+                  <input
+                    name="date"
+                    className="p-1 rounded-r-md w-40 border-2 border-l-0"
+                    type="date"
+                    placeholder=""
+                    onChange={(e) => setDate(e.target.value)}
+                  ></input>
+                </div>
+              </div>
+              <div className="absolute flex flex-col h-36 justify-between top-8 right-20">
+                <button
+                  onClick={Book}
+                  className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full"
+                >
+                  Book
+                </button>
+
+                <div className="flex flex-row justify-center text-6xl font-bold">
+                  <p className="text-[#64CCC5]">{price}</p>
+                  <h1 className="text-[#176B87]">SAR</h1>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      </div>
       </div>
       {/* end of Map */}
 
