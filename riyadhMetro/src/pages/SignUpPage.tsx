@@ -56,20 +56,20 @@ export default function SignUpPage() {
   return (
     <>
       <a href="/">
-        <img className="w-24 md:w-36 lg:w-36 absolute pl-2" src={Logo}></img>
+        <img className="w-36 md:w-36 lg:w-36 absolute pl-2" src={Logo}></img>
       </a>
-      <div className="flex flex-row justify-center lg:justify-end items-center xl:justify-end w-full h-screen  ">
-        <div className="flex flex-col items-center shadow-2xl shadow-[#176B87] border-2  border-[#176B87] m-6 md:m-14 h-[88%] w-[100%] md:h-[75%] lg:w-[40%] lg:h-[74%] rounded-3xl">
-          <h1 className="font-bold p-3 lg:p-10 text-4xl md:text-5xl lg:text-6xl my-8 text-[#176B87]">
+      <div className="flex flex-row justify-center lg:justify-end items-center w-full h-screen  ">
+        <div className="flex flex-col gap-y-5 items-center  shadow-2xl shadow-[#176B87] border-2 m-6 md:m-14 border-[#176B87] lg:w-[40%]  h-[75%] md:h-[55%] lg:h-[85vh] w-[100%] rounded-3xl">
+          <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl mt-8 text-[#176B87]">
             Sign Up
           </h1>
-          <div className="flex flex-col items-center lg:flex-row w-[91%] lg:w-4/5 lg:justify-between">
-            <div className="flex flex-col m-3 w-[80%] md:w-[84%] ">
-              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] p-3 ">
+          <div className="flex md:flex-row flex-col lg:flex-row lg:justify-between md:justify-between gap-y-5 lg:gap-y-0 md-y-0 w-11/12 lg:w-11/12">
+            <div className="flex flex-col ">
+              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] mb-2">
                 First Name:
               </label>
               <input
-                className="rounded-md h-10 md:h-14 lg:h-14  border-2 border-[#176B87]"
+                className="rounded-md w-full h-10 md:h-14 lg:h-14  border-2 border-[#176B87]"
                 type="text"
                 value={signup.firstName}
                 onChange={(e) =>
@@ -77,12 +77,12 @@ export default function SignUpPage() {
                 }
               ></input>
             </div>
-            <div className="flex flex-col m-3 md:w-[84%]">
-              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] p-3 ">
+            <div className="flex flex-col">
+              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] mb-2">
                 Last Name:
               </label>
               <input
-                className="rounded-md h-10 md:h-14 lg:h-14 w-4/4 border-2 border-[#176B87]"
+                className="rounded-md w-full h-10 md:h-14 lg:h-14 w-4/4 border-2 border-[#176B87]"
                 type="text"
                 value={signup.lastName}
                 onChange={(e) =>
@@ -91,9 +91,9 @@ export default function SignUpPage() {
               ></input>
             </div>
           </div>
-          <div className="flex flex-col w-4/5">
-            <div className="flex flex-col m-3 ">
-              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] p-3 ">
+          <div className="flex flex-col gap-y-5 w-11/12">
+            <div className="flex flex-col ">
+              <label className="text-xl md:text-2xl lg:text-2xl font-bold text-[#176B87] mb-2">
                 Email:
               </label>
               <input
@@ -106,8 +106,8 @@ export default function SignUpPage() {
               ></input>
             </div>
 
-            <div className="flex flex-col m-3 ">
-              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] p-3 ">
+            <div className="flex flex-col">
+              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] mb-2">
                 Password:
               </label>
               <input
@@ -122,10 +122,16 @@ export default function SignUpPage() {
           </div>
           <button
             onClick={handleSignUp}
-            className="rounded-xl w-[40%] h-[10%] bg-[#176B87] p-3 mt-[50px] md:mt-20 lg:mt-20 text-[#EEEEEE] font-bold text-xl md:text-3xl lg:text-3xl "
+            className="rounded-xl lg:w-[40%] lg:h-[12%] md:w-[40%] md:h-[12%] w-[32%] h-[8%] bg-[#176B87] p-3 text-[#EEEEEE] font-bold text-xl md:text-3xl lg:text-3xl "
           >
             Sign Up
           </button>
+          <p className="lg:text-xl md:text-xl text-md my-5 font-light text-[#176B87] ">
+            Already have an account?
+            <a href="/signup" className="text-[#36dacf] hover:underline ml-2">
+              Log in
+            </a>
+          </p>
         </div>
         <img className="hidden lg:block h-screen w-1/2" src={img}></img>
       </div>

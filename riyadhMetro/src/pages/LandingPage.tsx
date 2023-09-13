@@ -122,7 +122,8 @@ export default function LandingPage() {
       {/* end sec4 */}
 
       {/* footer */}
-      <Footer isLoggedIn={isLoggedIn}></Footer>
+      <div className=" bottom-0">
+      <Footer isLoggedIn={isLoggedIn}></Footer></div>
     </div>
   );
 }

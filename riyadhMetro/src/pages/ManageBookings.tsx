@@ -95,9 +95,9 @@ export default function ManageBookings() {
 
   return (
     <div>
-      <div className='h-[250vh] h-max-[250vh] w-full flex flex-col bg-[#EEEEEE] relative'>
+      <div className='lg:h-[250vh] md:h-screen h-screen w-full flex flex-col bg-[#EEEEEE] relative'>
       <NavBar isLoggedIn={!isLoggedIn} onLogin={handleLogin} onSignup={handleSignup} onLogout={handleLogout} ></NavBar>
-      <div ref={pdfRef} className='flex-col w-4/5 h-fit flex p-5 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+      <div ref={pdfRef} className='flex-col lg:w-4/5 md:w-11/12 w-full h-fit flex lg:p-5 md:p-2 p-1 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
       {list.map((item) => {
         return (
           <div  key={item.id}>
@@ -107,7 +107,7 @@ export default function ManageBookings() {
         })} 
       
       
-      <button className='mb-2 text-xl text-[#EEEEEE] font-bold bg-[#176B87] w-36 h-14 rounded-full' onClick={download}>download</button>
+      <button className='mb-2 lg:text-xl md:text-lg sm:text-sm text-[#EEEEEE] font-bold bg-[#176B87] lg:w-36 lg:h-14 w-28 h-10 rounded-full' onClick={download}>download</button>
       </div>
       
       </div>

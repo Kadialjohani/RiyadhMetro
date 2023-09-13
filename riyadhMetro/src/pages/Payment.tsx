@@ -27,7 +27,7 @@ export default function Payment() {
   return (
     <div className="bg-[#176B87] h-screen w-screen flex flex-col justify-center items-center">
 
-    <div className="lg:rounded-xl md:rounded-xl bg-white lg:w-3/4 md:w-11/12 w-full flex flex-col lg:p-5 md:p-5">
+    <div className="lg:rounded-xl md:rounded-xl bg-white p-1 lg:w-3/4 md:w-11/12 w-full flex flex-col lg:p-5 md:p-5">
       <Ticket from={localStorage.getItem("from")} to={localStorage.getItem("to")} date={localStorage.getItem("date")} price={localStorage.getItem("price").toString()}></Ticket>
     {/* {localStorage.getItem("from")} */}
     <div>

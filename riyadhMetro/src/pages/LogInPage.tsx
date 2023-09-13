@@ -43,14 +43,14 @@ export default function LogInPage() {
       <a href="/">
         <img className="w-36 absolute pl-2" src={Logo}></img>
       </a>
-      <div className="flex flex-row  justify-center lg:justify-end items-center xl:justify-end w-full h-screen ">
-        <div className="flex flex-col items-center shadow-2xl shadow-[#176B87] border-2 m-6 md:m-14 border-[#176B87] lg:w-[40%]  h-[66%] md:h-[60%] lg:h-[66%] w-[100%] rounded-3xl">
-          <h1 className="font-bold p-3 lg:p-10 text-4xl md:text-5xl lg:text-6xl my-8 text-[#176B87]">
+      <div className="flex flex-row justify-center lg:justify-end items-center w-full h-screen ">
+        <div className="flex flex-col gap-y-10 items-center  shadow-2xl shadow-[#176B87] border-2 m-6 md:m-14 border-[#176B87] lg:w-[40%]  h-[60%] md:h-[50%] lg:h-[80vh] w-[100%] rounded-3xl">
+          <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl mt-8 text-[#176B87]">
             Log In
           </h1>
-          <div className="flex justify-start flex-col w-4/5 ">
-            <div className="flex flex-col mb-10 w-full">
-              <label className=" text-xl md:text-2xl lg:text-2xl font-bold text-[#176B87] p-3">
+          <div className="flex flex-col gap-y-10 w-4/5">
+            <div className="flex flex-col w-full">
+              <label className=" text-xl md:text-2xl lg:text-2xl font-bold text-[#176B87] mb-2">
                 Email:
               </label>
               <input
@@ -61,7 +61,7 @@ export default function LogInPage() {
               ></input>
             </div>
             <div className="flex flex-col w-full ">
-              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] p-3 ">
+              <label className="text-xl md:text-2xl lg:text-2xl font-bold  text-[#176B87] mb-2">
                 Password:
               </label>
               <input
@@ -74,19 +74,14 @@ export default function LogInPage() {
           </div>
           <button
             onClick={handleLogIn}
-            className="rounded-xl w-[40%] h-[10%] bg-[#176B87] p-3 mt-[50px] md:mt-20 lg:mt-20 text-[#EEEEEE] font-bold text-xl md:text-3xl lg:text-3xl "
+            className="rounded-xl w-[40%] h-[12%] bg-[#176B87] p-3 text-[#EEEEEE] font-bold text-xl md:text-3xl lg:text-3xl "
           >
             Log In
           </button>
-          <button
-            type="submit"
-            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          >
-            Sign in
-          </button>
-          <p className="lg:text-xl md:text-xl text-l font-light text-[#176B87]">
+          
+          <p className="lg:text-xl md:text-xl text-md font-light text-[#176B87] ">
             Don’t have an account yet?
-            <a href="signup" className="text-[#176B87] hover:underline">
+            <a href="/signup" className="text-[#36dacf] hover:underline ml-2">
               Sign up
             </a>
           </p>
