@@ -36,13 +36,8 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // post Ticket
   const [list, setList] = React.useState<info[]>([]);
-  // const [tickets, setTickets] = React.useState({
-  //   from: "",
-  //   to: "",
-  //   date: "",
-  //   price: "",
-  // });
-  const [date, setDate] = React.useState();
+
+  const [date, setDate] = React.useState("");
 
   useEffect(() => {
     axios
@@ -53,23 +48,7 @@ export default function Home() {
   }, []);
 
   const nav = useNavigate();
-  // const Book = () => {
-  //   axios
-  //     .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
-  //       from: selectedStation1?.name || "",
-  //       to: selectedStation2?.name || "",
-  //       date: date,
-  //       price: price,
-  //     })
-  //     .then((res) => {
-  //       setList([...list, res.data]);
-  //       setDate(date)
-  //       // console.log(res));
 
-  //     });
-  //     nav("/bookings")
-
-  // };
   // edited
   const Book = () => {
     localStorage.setItem("from", selectedStation1?.name || "");
@@ -291,8 +270,8 @@ export default function Home() {
         />
         {/* Rest of your app */}
         {/* map */}
-        <div className="flex-col w-4/5 h-4/5 flex p-5 rounded-xl bg-white justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="border-2 border-[#176B87] flex justify-center items-center h-2/4 w-4/5 m-5 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="flex-col w-[99%] h-[60%] md:w-[99%] lg:w-4/5 lg:h-4/5 p-5 rounded-xl bg-white justify-center absolute lg:top-1/2 top-[40%] left-48 md:left-[50%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="border-2 border-[#176B87] flex justify-center items-center lg:h-2/4 h-[60%] md:w-11/12 lg:w-4/5 w-11/12  md:mt-32 mt-20 absolute top-1/4 lg:top-1/4 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
             <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
               <GoogleMap
                 mapContainerStyle={containerStyle}
@@ -352,33 +331,42 @@ export default function Home() {
           </div>
 
           {/* the ticket */}
-          <div className="absolute h-fit w-4/5 ml-5 top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex justify-center items-center  h-fit w-fit mx-auto relative">
-              <img className="" src={TicketForm}></img>
-              <div className="absolute top-16 left-12">
-                <h1 className="mb-2 text-xl font-bold text-[#176B87]">From</h1>
+          <div className="absolute h-fit lg:w-4/5 w-11/12 md:w-11/12 lg:ml-5 top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="flex justify-center items-center h-fit w-fit lg:mx-auto relative">
+              <img
+                className="lg:w-full lg:h-full h-40 w-full md:w-full "
+                src={TicketForm}
+              ></img>
+              <div className="absolute lg:top-16 lg:left-12 left-2 top-6">
+                <h1 className="lg:mb-2 lg:text-xl text-sm font-bold text-[#176B87]">
+                  From:
+                </h1>
                 <input
                   name="origin"
-                  className="p-1 rounded-md w-40 border-2"
+                  className="p-1 rounded-md w-20 h-8 lg:w-48 lg:h-11 border-2"
                   type="text"
                   placeholder="origin"
                   value={selectedStation1?.name || ""}
                   readOnly
                 ></input>
               </div>
-              <div className="absolute top-16 left-80">
-                <h1 className="mb-2 text-xl font-bold text-[#176B87]">To</h1>
+              <div className="absolute top-7 lg:top-16 lg:left-80">
+                <h1 className="lg:mb-2 lg:text-xl text-sm font-bold text-[#176B87]">
+                  To:
+                </h1>
                 <input
                   name="destination"
-                  className="p-1 rounded-md w-40 border-2"
+                  className="p-1 rounded-md w-20 h-8 lg:w-48 lg:h-11 border-2"
                   type="text"
                   placeholder="destination"
                   value={selectedStation2?.name || ""}
                   readOnly
                 ></input>
               </div>
-              <div className="absolute top-48 left-52">
-                <h1 className="mb-2 text-xl font-bold text-[#176B87]">Date</h1>
+              <div className="absolute lg:top-48 lg:left-52 md:right-52  right-40 mt-2 top-[83px]">
+                <h1 className="lg:mb-2 lg:text-xl text-sm font-bold text-[#176B87]">
+                  Date:
+                </h1>
                 <div className="flex flex-row">
                   <button className="bg-white p-1 border-2 border-r-0 rounded-l-md">
                     <FontAwesomeIcon
@@ -395,15 +383,15 @@ export default function Home() {
                   ></input>
                 </div>
               </div>
-              <div className="absolute flex flex-col h-36 justify-between top-8 right-20">
+              <div className="absolute flex flex-col lg:h-36 justify-between lg:top-8 lg:left-[73.6%] left-64 mt-5 h-32 md:h-28 md:left-[74.6%]">
                 <button
                   onClick={Book}
-                  className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full"
+                  className="lg:mb-2 lg:text-2xl text-xl text-[#EEEEEE] font-bold bg-[#176B87] h-8 w-20 lg:w-40 lg:h-10 rounded-full"
                 >
                   Book
                 </button>
 
-                <div className="flex flex-row justify-center text-6xl font-bold">
+                <div className="flex flex-row justify-center lg:text-6xl font-bold text-xl h-20 ">
                   <p className="text-[#64CCC5]">{price}</p>
                   <h1 className="text-[#176B87]">SAR</h1>
                 </div>
