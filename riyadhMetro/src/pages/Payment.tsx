@@ -25,14 +25,14 @@ export default function Payment() {
   };
 
   return (
-    <div className="bg-[#176B87] h-screen flex flex-col justify-center items-center">
+    <div className="bg-[#176B87] h-screen w-screen flex flex-col justify-center items-center">
 
-    <div className="rounded-xl bg-white w-3/4 flex flex-col p-5">
+    <div className="lg:rounded-xl md:rounded-xl bg-white lg:w-3/4 md:w-11/12 w-full flex flex-col lg:p-5 md:p-5">
       <Ticket from={localStorage.getItem("from")} to={localStorage.getItem("to")} date={localStorage.getItem("date")} price={localStorage.getItem("price").toString()}></Ticket>
     {/* {localStorage.getItem("from")} */}
     <div>
       
-      <a href="https://buy.stripe.com/test_bIYaHObp12fjeaI144"><button onClick={showAlert} className="mb-2 text-2xl text-[#EEEEEE] font-bold bg-[#176B87] w-40 h-10 rounded-full">Pay</button></a>
+      <a href="https://buy.stripe.com/test_bIYaHObp12fjeaI144"><button onClick={showAlert} className="lg:text-2xl md:text-xl text-sm text-[#EEEEEE] font-bold bg-[#176B87] lg:w-40 lg:h-10 md:w-40 md:h-10 w-20 h-6 mb-2 rounded-full">Pay</button></a>
 
     </div>
     </div>

@@ -60,37 +60,37 @@ const Navbar: React.FC<NavbarProps> = ({
                 </li>
               </div>
             </ul>
-          </nav>
-        </>
-      )}
-      {isLoggedIn && (
-        <>
-          <nav className="lg:h-[80px] md:h-[80px] h-[60px] bg-gradient-to-b from-[#64CCC5] to-[#053B50] w-full">
-            <ul className="flex flex-row lg:justify-between  justify-centermd:justify-center gap-5 font-bold text-sm text-center md:text-xl lg:text-2xl text-[#EEEEEE]">
-              <div className="flex flex-row lg:justify-between mt-3 md:mt-2 justify-end md:justify-between gap-3 items-center w-3/6">
-                <li>
-                  <a href="/home">
-                    <img className="w-36" src={Logo2}></img>
-                  </a>
-                </li>
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-
-                <li>
-                  <a href="/bookings">Manage Bookings</a>
-                </li>
-              </div>
-              <div className="flex flex-row items-center mt-3 md:justify-end lg:justify-around w-1/5">
-                <li>
-                  <button
-                    className="bg-[#EEEEEE] text-[#176B87] w-20 h-9 lg:w-28 lg:h-11 md:w-28 md:h-11 rounded-full"
-                    onClick={onLogout}
-                  >
-                    Logout
-                  </button>
-                </li>
-              </div>
+            </nav>
+          </>
+        )}
+        {isLoggedIn && (
+          <>
+          <nav className="h-80px bg-gradient-to-b from-[#64CCC5] to-[#053B50] w-full">
+      <ul className="flex flex-row justify-between mx-24 font-bold text-xl text-[#EEEEEE]">
+            <div className="flex flex-row justify-between items-center w-3/6">
+              <li>
+                <a href="/home">
+                  <img className="w-36" src={Logo2}></img>
+                </a>
+              </li>
+              <li>
+                <a href="/home">Home</a>
+              </li>
+              
+              <li>
+                <a href="/bookings">Manage Bookings</a>
+              </li>
+            </div>
+            <div className="flex flex-row items-center justify-around w-1/5">
+              <li>
+                <button
+                  className="bg-[#EEEEEE] text-[#176B87] w-24 h-10 rounded-full"
+                  onClick={onLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            </div>
             </ul>
           </nav>
         </>
