@@ -2,6 +2,7 @@ import img from "../assets/signupImg.png";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import * as EmailValidator from 'email-validator';
 import Logo from "../assets/Logo.png";
 import Swal from "sweetalert2";
 
@@ -22,7 +23,8 @@ export default function SignUpPage() {
   });
   const nav = useNavigate();
   const handleSignUp = () => {
-    if (signup.email.includes("@") && signup.password.length > 9) {
+    if (signup.firstName && signup.lastName && signup.email && signup.password){
+    if (EmailValidator.validate(signup.email) && signup.password.length >= 8) {
       axios
         .post("https://64ec51b1f9b2b70f2bfa175c.mockapi.io/Users", {
           firstName: signup.firstName,
@@ -50,7 +52,14 @@ export default function SignUpPage() {
         text: "Please enter a valid email and password (minimum 10 characters).",
       });
     }
-  };
+  }else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "You left required fields empty",
+    });
+  }
+}
   // nav
 
   return (
@@ -128,7 +137,7 @@ export default function SignUpPage() {
           </button>
           <p className="lg:text-xl md:text-xl text-md my-5 font-light text-[#176B87] ">
             Already have an account?
-            <a href="/signup" className="text-[#36dacf] hover:underline ml-2">
+            <a href="/login" className="text-[#36dacf] hover:underline ml-2">
               Log in
             </a>
           </p>

@@ -49,7 +49,7 @@ export default function Home() {
 
   const nav = useNavigate();
 
-  // edited
+  
   const Book = () => {
     localStorage.setItem("from", selectedStation1?.name || "");
     // from: selectedStation1?.name || "",
@@ -62,6 +62,18 @@ export default function Home() {
 
     nav("/payment");
   };
+
+  if(localStorage.getItem("isLogin") === "true"){
+    nav("/home")
+} else {
+  nav("/login")
+}
+
+const handleLogout = () => {
+  // Perform logout logic here
+  setIsLoggedIn(false);
+  localStorage.setItem("isLogin", false)
+};
 
   // map
 
@@ -244,20 +256,19 @@ export default function Home() {
       setPrice(null);
     }
   }, [distance]);
+
+  
   const handleLogin = () => {
-    // Perform login logic here
+  
     setIsLoggedIn(true);
+    
   };
-
   const handleSignup = () => {
-    // Perform signup logic here
+    
     setIsLoggedIn(true);
   };
 
-  const handleLogout = () => {
-    // Perform logout logic here
-    setIsLoggedIn(false);
-  };
+  
 
   return (
     <div>
@@ -332,7 +343,7 @@ export default function Home() {
 
           {/* the ticket */}
           <div className="absolute h-fit lg:w-4/5 md:w-11/12 w-11/12 top-3/4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="flex justify-center items-center border-4 h-fit md:w-full w-full lg:mx-auto relative">
+            <div className="flex justify-center items-center h-fit md:w-full w-full lg:mx-auto relative">
               <img
                 className="lg:w-full md:w-full lg:h-full h-40 w-full"
                 src={TicketForm}

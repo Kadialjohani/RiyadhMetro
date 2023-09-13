@@ -11,13 +11,15 @@ import olaya from "../assets/olaya.jpg";
 import kafd from "../assets/kafd.jpg";
 import western from "../assets/western.jpg";
 import hokm from "../assets/hokm.png";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  
   const handleLogin = () => {
     // Perform login logic here
     setIsLoggedIn(true);
+    
   };
 
   const handleSignup = () => {
@@ -31,7 +33,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="">
+    <div>
       <div className="relative lg:h-[88vh] md:h-[44vh] h-[37vh] w-full">
         <NavBar
           isLoggedIn={isLoggedIn}
@@ -122,8 +124,8 @@ export default function LandingPage() {
       {/* end sec4 */}
 
       {/* footer */}
-      <div className=" bottom-0">
-      <Footer isLoggedIn={isLoggedIn}></Footer></div>
+      
+      <Footer isLoggedIn={isLoggedIn}></Footer>
     </div>
   );
 }

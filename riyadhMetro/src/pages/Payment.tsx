@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Ticket from "../component/Ticket";
-import Swal from "sweetalert2";
+
 
 export default function Payment() {
   const nav = useNavigate();
-  // function showAlert() {
-  //   alert();
-  //   nav("/bookings")
-  // post code
+  if(localStorage.getItem("isLogin") === "true"){
+    nav("/payment")
+} else {
+  nav("/login")
+
+  
+}
   const showAlert = () => {
     axios
       .post("https://64fc603b605a026163ae6c99.mockapi.io/tickets", {
