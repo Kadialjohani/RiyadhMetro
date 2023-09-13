@@ -25,7 +25,7 @@ export default function LogInPage() {
     const IsLogin = data.some((e: Info) => {
       return e.email === email && e.password === password;
     });
-    localStorage.setItem("isLog", IsLogin);
+    localStorage.setItem("isLogin", IsLogin);
 
     if (IsLogin) {
       nav("/home");

@@ -8,6 +8,7 @@ import NavBar from '../component/NavBar'
 import Footer from '../component/Footer'
 import Ticket from '../component/Ticket'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 interface info {
   id:number
@@ -25,6 +26,13 @@ export default function ManageBookings() {
 
   // get
   const [list, setList] = React.useState<info[]>([]);
+
+  const nav = useNavigate()
+  if(localStorage.getItem("isLogin") === "true"){
+    nav("/bookings")
+} else {
+  nav("/login")
+}
 
   React.useEffect(() => {
     axios
@@ -75,6 +83,7 @@ export default function ManageBookings() {
   const handleLogout = () => {
     // Perform logout logic here
     setIsLoggedIn(false);
+    localStorage.setItem("isLogin", false)
   };
   // download btn
   const download = () => {
