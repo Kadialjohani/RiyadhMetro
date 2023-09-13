@@ -269,7 +269,7 @@ export default function Home() {
           Book a Ticket
         </h1>
 
-        <div className="flex-col w-[99%] h-[60%] md:w-[99%] lg:w-4/5 lg:h-[70%] p-5 rounded-xl bg-white justify-center absolute lg:top-1/2 top-[40%] left-48 md:left-[50%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="flex-col w-[99%] h-[60%] md:w-[99%] lg:w-4/5 lg:h-[80%] p-5 lg:justify-between rounded-xl bg-white absolute lg:top-1/2 lg:mt-10 mt-5 top-[40%] left-48 md:left-[50%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="border-2 border-[#176B87] flex justify-center items-center lg:h-2/4 h-[60%] md:w-11/12 lg:w-4/5 w-11/12  md:mt-32 mt-20 absolute top-1/4 lg:top-1/4 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
             <LoadScript googleMapsApiKey="AIzaSyCo06Lax0RuvqqmoCEGSn-GEZEhLD3E-pA ">
               <GoogleMap
@@ -331,7 +331,7 @@ export default function Home() {
           {/* end of Map */}
 
           {/* the ticket */}
-          <div className="absolute h-fit lg:w-4/5 md:w-11/12 w-11/12 top-3/4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute h-fit lg:w-4/5 md:w-11/12 w-11/12 top-3/4 lg:mt-4 lg:top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="flex justify-center items-center h-fit md:w-full w-full lg:mx-auto relative">
               <img
                 className="lg:w-full md:w-full lg:h-full h-40 w-full"
