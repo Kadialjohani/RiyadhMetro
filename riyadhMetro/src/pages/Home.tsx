@@ -4,7 +4,7 @@ import TicketForm from "../assets/TicketForm.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -30,9 +30,7 @@ interface Station {
 // actual code
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const [date, setDate] = React.useState("");
-
+  const [date, setDate] = useState("");
   const nav = useNavigate();
 
   // send ticket to payment page
@@ -52,11 +50,13 @@ export default function Home() {
     }
   };
 
-  if (localStorage.getItem("isLogin") === "true") {
-    nav("/home");
-  } else {
-    nav("/login");
-  }
+  useEffect(() => {
+    if (localStorage.getItem("isLogin") === "true") {
+      nav("/home");
+    } else {
+      nav("/login");
+    }
+  },[]);
 
   // logout
   const handleLogout = () => {

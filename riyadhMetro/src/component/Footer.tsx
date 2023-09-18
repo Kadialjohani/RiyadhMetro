@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = ({ isLoggedIn }) => {
 
         {!isLoggedIn && (
           <>
-            <div className="flex flex-row lg:items-center lg:justify-between items-center justify-between w-2/12 md:text-4xl lg:text-6xl lg:w-1/6">
+            <div className="flex flex-row lg:items-center lg:justify-between items-center justify-between w-2/12 md:text-4xl lg:text-6xl lg:w-1/6 ml-3">
               <li>
                 <a href="https://www.instagram.com/riyadhtransport/">
                   <FontAwesomeIcon icon={faSquareInstagram} />

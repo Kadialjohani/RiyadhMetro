@@ -13,7 +13,6 @@ const Navbar: React.FC<NavbarProps> = ({
   onSignup,
   onLogout,
 }) => {
-  
   return (
     <>
       {!isLoggedIn && (
@@ -38,11 +37,11 @@ const Navbar: React.FC<NavbarProps> = ({
                   </a>
                 </li>
               </div>
-              <div className="flex flex-row justify-between md:gap-5 lg:gap-4 md:justify-start items-center lg:flex-row lg:items-center w-1/6">
+              <div className="flex flex-row justify-between gap-2 md:gap-2 lg:gap-4 md:justify-start items-center lg:flex-row lg:items-center w-1/6 ">
                 <li>
                   <a href="/login">
                     <button
-                      className="border-2 border-[#EEEEEE] text-[#EEEEEE] w-14 h-8 md:w-24 md:h-10 lg:w-32 lg:h-12 rounded-full"
+                      className="border-2 border-[#EEEEEE] text-[#EEEEEE]  text-[11px] text-sm md:text-xl lg:text-3xl w-12 h-7 md:w-24 md:h-10 lg:w-32 lg:h-12 rounded-full"
                       onClick={onLogin}
                     >
                       Login
@@ -52,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <li>
                   <a href="/signup">
                     <button
-                      className="bg-[#EEEEEE] text-[#176B87] w-14 h-8 md:w-24 md:h-10 lg:w-32 lg:h-12 rounded-full"
+                      className="bg-[#EEEEEE] text-[#176B87] text-[11px] md:text-xl lg:text-3xl w-12 h-7 md:w-24 md:h-10 lg:w-32 lg:h-12 rounded-full"
                       onClick={onSignup}
                     >
                       Signup
@@ -61,7 +60,6 @@ const Navbar: React.FC<NavbarProps> = ({
                 </li>
               </div>
             </ul>
-
           </nav>
         </>
       )}
@@ -83,19 +81,18 @@ const Navbar: React.FC<NavbarProps> = ({
                   <a href="/bookings">Bookings</a>
                 </li>
               </div>
-              <div className="flex flex-row items-center mt-3 md:justify-end lg:justify-around w-1/5">
+              <div className="flex flex-row items-center justify-end mt-3 md:justify-center lg:justify-around w-1/5">
                 <li>
                   <a href="/login">
-                  <button
-                    className="bg-[#EEEEEE] text-[#176B87] w-20 h-9 lg:w-28 lg:h-11 md:w-28 md:h-11 rounded-full"
-                    onClick={onLogout}
-                  >
-                    Logout
-                  </button>
+                    <button
+                      className="bg-[#EEEEEE] text-[#176B87] w-20 h-9 lg:w-28 lg:h-11 md:w-28 md:h-11 rounded-full"
+                      onClick={onLogout}
+                    >
+                      Logout
+                    </button>
                   </a>
                 </li>
               </div>
-
             </ul>
           </nav>
         </>

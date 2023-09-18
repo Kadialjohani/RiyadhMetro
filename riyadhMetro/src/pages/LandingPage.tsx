@@ -67,23 +67,23 @@ export default function LandingPage() {
       {/*  start sec2 */}
       <div
         id="services"
-        className="lg:h-60 md:h-[60vh] h-[60vh] w-full bg-gradient-to-b flex lg:flex-row md:flex-col flex-col justify-around items-center from-[#053B50] to-[#36dacf]"
+        className="lg:h-60 md:h-[60vh] h-[66vh] w-full bg-gradient-to-b flex lg:flex-row md:flex-col flex-col justify-around items-center from-[#053B50] to-[#36dacf]"
       >
-        <div className="relative">
-          <img className="lg:w-72 md:w-80 w-60" src={icon1}></img>
-          <h1 className="absolute top-8 left-20 text-sm text-center md:left-28 md:w-40 md:top-8 font-bold md:text-xl lg:text-xl lg:top-5 lg:left-24 lg:text-center text-[#176B87] ">
+        <div className="relative ">
+          <img className="lg:w-72 md:w-96 w-60 " src={icon1}></img>
+          <h1 className="absolute top-8 left-20 text-sm text-center md:left-32 md:w-44 md:top-9 font-bold md:text-2xl lg:text-xl lg:top-5 lg:left-24 lg:text-center text-[#176B87] ">
             Book Tickets Online
           </h1>
         </div>
         <div className="relative">
-          <img className="lg:w-72 md:w-80 w-60 " src={icon2}></img>
-          <h1 className="absolute top-6 left-16 text-sm md:left-24 md:w-38 md:top-8 font-bold md:text-xl lg:text-xl lg:top-5 lg:left-20 text-center text-[#176B87] ">
+          <img className="lg:w-72 md:w-96 w-60 " src={icon2}></img>
+          <h1 className="absolute top-6 left-16 text-sm md:left-28 md:w-38 md:top-9 font-bold md:text-2xl lg:text-xl lg:top-5 lg:left-20 text-center text-[#176B87] ">
             Pick The Nearest Station
           </h1>
         </div>
         <div className="relative">
-          <img className="lg:w-72 md:w-80 w-60" src={icon3}></img>
-          <h1 className="absolute top-8 left-20 text-sm md:left-28 md:w-40 md:top-8 font-bold md:text-xl lg:text-xl lg:top-5 lg:left-24 text-center text-[#176B87] ">
+          <img className="lg:w-72 md:w-96 w-60" src={icon3}></img>
+          <h1 className="absolute top-8 left-20 text-sm md:left-36 md:w-36 md:top-9 font-bold md:text-2xl lg:text-xl lg:top-5 lg:left-24 text-center text-[#176B87] ">
             Schedule Your Trips
           </h1>
         </div>
