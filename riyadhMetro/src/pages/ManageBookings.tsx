@@ -9,6 +9,7 @@ import Footer from "../component/Footer";
 import Ticket from "../component/Ticket";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 interface info {
   id: string;
@@ -29,11 +30,13 @@ export default function ManageBookings() {
   const [list, setList] = React.useState<info[]>([]);
 
   const nav = useNavigate();
-  if (localStorage.getItem("isLogin") === "true") {
-    nav("/bookings");
-  } else {
-    nav("/login");
-  }
+  useEffect(() => {
+    if (localStorage.getItem("isLogin") === "true") {
+      nav("/bookings");
+    } else {
+      nav("/login");
+    }
+  },[]);
 
   React.useEffect(() => {
     axios
