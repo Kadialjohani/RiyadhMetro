@@ -5,17 +5,20 @@ import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 export default function Payment() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const nav = useNavigate();
   // block no logged in users
-  if (localStorage.getItem("isLogin") === "true") {
-    nav("/payment");
-  } else {
-    nav("/login");
-  }
+  useEffect(() => {
+    if (localStorage.getItem("isLogin") === "true") {
+      nav("/payment");
+    } else {
+      nav("/login");
+    }
+  },[]);
 
   // prevent logging oout during payment process
   const handleLogout = () => {
