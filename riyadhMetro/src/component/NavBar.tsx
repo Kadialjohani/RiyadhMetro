@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({
       {!isLoggedIn && (
         <>
           <nav className="h-80px absolute w-full z-20 mt-4 ">
-            <ul className="flex flex-row gap-2 md:gap-14 md:justify-start lg:flex-row lg:justify-between font-bold text-sm md:text-xl lg:text-3xl text-[#EEEEEE]">
+            <ul className="flex flex-row md:gap-14 md:justify-start lg:justify-between font-bold text-sm md:text-xl lg:text-3xl text-[#EEEEEE]">
               <div className="flex flex-row justify-between lg:flex-row lg:justify-between items-center w-2/3">
                 <li>
                   <a href="/">
@@ -37,7 +37,9 @@ const Navbar: React.FC<NavbarProps> = ({
                   </a>
                 </li>
               </div>
-              <div className="flex flex-row justify-between gap-2 md:gap-2 lg:gap-4 md:justify-start items-center lg:flex-row lg:items-center w-1/6 ">
+
+              <div className="flex flex-row justify-between md:gap-5 lg:gap-4 md:justify-start items-center lg:flex-row lg:items-center w-1/5">
+
                 <li>
                   <a href="/login">
                     <button
@@ -51,7 +53,9 @@ const Navbar: React.FC<NavbarProps> = ({
                 <li>
                   <a href="/signup">
                     <button
-                      className="bg-[#EEEEEE] text-[#176B87] text-[11px] md:text-xl lg:text-3xl w-12 h-7 md:w-24 md:h-10 lg:w-32 lg:h-12 rounded-full"
+
+                      className="bg-[#EEEEEE] text-[#176B87] w-14  h-8 md:w-24 md:h-10 lg:w-32 lg:h-12 rounded-full"
+
                       onClick={onSignup}
                     >
                       Signup

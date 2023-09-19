@@ -45,7 +45,7 @@ export default function Payment() {
   };
 
   return (
-    <div className="bg-[#EEEEEE] h-[120vh] w-screen flex flex-col items-center justify-between">
+    <div className="bg-[#EEEEEE] h-[130vh] w-screen flex flex-col items-center justify-between">
       <NavBar
         isLoggedIn={!isLoggedIn}
         onLogin={handleLogin}
